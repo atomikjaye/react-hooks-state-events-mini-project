@@ -12,6 +12,11 @@ function App() {
   const [taskList, setTaskList] = useState(TASKS)
   const [categoryList, setCategoryList] = useState('All')
 
+  function handleFormSubmit(newTask) {
+    setTaskList([...taskList, newTask])
+  }
+
+
   console.log(taskList)
   return (
     <div className="App">
@@ -21,7 +26,10 @@ function App() {
         categoryList={categoryList}
         setCategoryList={setCategoryList}
       />
-      <NewTaskForm />
+      <NewTaskForm
+        categories={CATEGORIES}
+        onTaskFormSubmit={handleFormSubmit}
+      />
       <TaskList
         tasks={taskList}
         setTaskList={setTaskList}

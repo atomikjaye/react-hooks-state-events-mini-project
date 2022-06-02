@@ -17,15 +17,17 @@ function TaskList({ tasks, setTaskList, categoryList }) {
     } else if (categoryList === 'All') {
       return true
     }
-
+    // return setTaskList(filteredList)
   }
+
   )
   const listTasks = filteredList.map((task) => {
     return (
       <Task
         key={task.text}
         id={task.text}
-        task={task}
+        text={task.text}
+        category={task.category}
         handleDelete={handleDelete}
       />
     )
